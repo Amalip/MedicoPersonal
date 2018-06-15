@@ -1,0 +1,22 @@
+<div>
+  <img src="" alt="">
+  <h3 *ngIf="rol == 'doctor'">Hello Doctor!</h3>
+  <h3 *ngIf="rol == 'asistentes'">Hello Assistant!</h3>
+  <p>Fulanito Merenganito</p>
+
+  <div *ngIf="rol == 'doctor'">
+      <div class="form-check" *ngFor="let c of citas">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            Nombre de la personita
+          </label>
+        </div>
+  </div>
+
+  <div class="input-group mb-3" *ngIf="rol == 'asistentes'">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button">Button</button>
+    </div>
+    <input type="text" class="form-control" placeholder="pin de la persona..." aria-label="" aria-describedby="basic-addon1">
+  </div>
+</div>
