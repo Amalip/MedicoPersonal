@@ -3,4 +3,9 @@ export class Paciente {
     public numeroSeguro : number;
     public status : number;
     public pin : string;
+
+    constructor(
+        public _idPaciente : number, 
+        public _nombre: string){
+    }
 }

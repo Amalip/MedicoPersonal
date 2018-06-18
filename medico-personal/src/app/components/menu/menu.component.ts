@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Paciente } from '../../models/paciente.models';
+import { PacientesService } from '../../services/pacientes.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,14 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  rol="doctor";
-  citas: string[] = [];
+  @Input() rol: string;
+  citas: Paciente[] = [];
 
-  constructor() {
-    this.citas = ['',''];
+  constructor(private pacienteService: PacientesService, 
+    private router: Router) {
+    this.citas = this.pacienteService.getPacientes(); 
    }
 
   ngOnInit() {
   }
 
+  
 }

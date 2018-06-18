@@ -22,5 +22,10 @@ img{
 }
 
 h5{
-    margin-left: 24px; 
+    margin-bottom: 10px; 
+}
+
+select:focus > option:hover{
+    background-color: #176189 !important; 
+    color: white;
 }
