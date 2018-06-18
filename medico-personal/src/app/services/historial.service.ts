@@ -9,28 +9,37 @@ import { InternalServerError } from '../common/errors/internal-server-error';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
-import { orden } from '../models/orden.models';
-import { ordenResponse } from '../models/ordenResponse.models';
+import { Historial } from '../models/historial.models';
 
 @Injectable()
-export class OrdenService {
+export class HistorialService {
 
   serviceUrl: string;
 
   constructor(private module, private http: Http) {
-    this.serviceUrl = `${Configuration.farmaciaURL}/api/v1/mypharmacy`;
+    
   }
   
-  createOrden(resource: ordenResponse) : Observable<orden> {
+  insertHistorial(historial : Historial) {
+    this.serviceUrl = `${Configuration.historialURL}/api/v1/insertar`;
+
     const headers = new Headers();
 
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post(this.serviceUrl, JSON.stringify(resource), { headers: headers })
-      .map((response: Response): ordenResponse => response.json())
+    this.http.post(this.serviceUrl, JSON.stringify(historial), { headers: headers })
       .catch(this.handleError);
   }
+
+  getHistorial(id : number) : Observable<Historial> {
+    this.serviceUrl = `${Configuration.historialURL}/api/v1/obtener`;
+
+    return this.http.get(`${this.serviceUrl}/${id}`)
+      .map((response: Response): Historial[] => response.json())
+      .catch(this.handleError);
+  }
+
 
   private handleError(error: Response) {
     const originalError = error.json();
