@@ -4,4 +4,5 @@ export class Historial{
     public descripcion : string;
     public fecha : string;
     public nombreHospital : string;
+    public estatus : number;
 }
