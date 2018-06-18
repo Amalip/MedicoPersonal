@@ -16,7 +16,7 @@ export class UsuarioService {
 
   serviceUrl: string;
 
-  constructor(private module, private http: Http) {
+  constructor(private http: Http) {
     this.serviceUrl = `${Configuration.usuarioURL}/info-completa/:`;
   }
   

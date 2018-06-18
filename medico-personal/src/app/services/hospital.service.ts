@@ -16,7 +16,7 @@ export class HospitalService {
 
   serviceUrl: string;
 
-  constructor(private module, private http: Http) {
+  constructor(private http: Http) {
     this.serviceUrl = `${Configuration.hospitalesURL}/api/v1/getHospitales`;
   }
   

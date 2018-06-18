@@ -16,7 +16,7 @@ export class HistorialService {
 
   serviceUrl: string;
 
-  constructor(private module, private http: Http) {
+  constructor(private http: Http) {
     
   }
   

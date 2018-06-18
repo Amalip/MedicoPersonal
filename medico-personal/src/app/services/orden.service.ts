@@ -17,7 +17,7 @@ export class OrdenService {
 
   serviceUrl: string;
 
-  constructor(private module, private http: Http) {
+  constructor(private http: Http) {
     this.serviceUrl = `${Configuration.farmaciaURL}/api/v1/mypharmacy`;
   }
   
