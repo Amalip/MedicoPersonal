@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   @Input() rol: string;
   citas: Paciente[] = [];
+  paciente:Paciente; 
 
   constructor(private pacienteService: PacientesService, 
     private router: Router) {
@@ -21,5 +22,8 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  goToDash(event: any){
+    this.paciente = event.target.value; 
+    this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/'+this.paciente._nombre);
+  }
 }

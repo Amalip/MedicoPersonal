@@ -19,7 +19,7 @@ import { NubePersonalComponent } from './components/nube-personal/nube-personal.
 
 const routes = [ 
   {
-    path: 'doctor',
+    path: 'doctor/:id/:name',
     component: DoctorDashboardComponent, 
     children: [
       {
@@ -31,7 +31,7 @@ const routes = [
         component: NubePersonalComponent
       },
       {
-        path: 'receta',
+        path: 'receta/:id',
         component: RecetaComponent
       }
     ] 

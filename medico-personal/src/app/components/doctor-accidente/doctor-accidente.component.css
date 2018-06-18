@@ -1,6 +1,6 @@
 .btn{
     color: #ffffff; 
-    margin: 55px 10px;
+    margin: 27px 10px;
     height: 65px; 
     width: 65px;
     border-radius: 50%; 
@@ -14,4 +14,10 @@
     border-width: 3px !important; 
     margin: 20px; 
     font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+img{
+    height:120px; 
+    width:120px;
+    border-radius: 15px 0 0 15px;
 }
