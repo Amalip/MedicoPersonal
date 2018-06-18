@@ -1,22 +1,26 @@
-<div>
-  <img src="" alt="">
-  <h3 *ngIf="rol == 'doctor'">Hello Doctor!</h3>
-  <h3 *ngIf="rol == 'asistentes'">Hello Assistant!</h3>
-  <p>Fulanito Merenganito</p>
-
-  <div *ngIf="rol == 'doctor'">
-      <div class="form-check" *ngFor="let c of citas">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            Nombre de la personita
-          </label>
-        </div>
+<div class="doc-container">
+  <div style="text-align: center;">
+    <img *ngIf="rol == 'doctor'" src="./assets/img/doc.png" alt="">
+    <img *ngIf="rol == 'asistentes'" src="./assets/img/ass.png" alt="">
+    <h3 *ngIf="rol == 'doctor'">Hello Doctor!</h3>
+    <h3 *ngIf="rol == 'asistentes'">Hello Assistant!</h3>
+    <p>Merenganito</p>
   </div>
 
-  <div class="input-group mb-3" *ngIf="rol == 'asistentes'">
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="button">Button</button>
+  <div *ngIf="rol == 'doctor'" style="margin-top:50px">
+       <h5><i class="fas fa-clipboard-list"></i> Citas pendientes</h5>
+      <div class="form-check" *ngFor="let c of citas">
+          <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio1">Nombre de la personita</label>
+            </div>
+      </div>
+  </div>
+
+  <div class="input-group mb-3" *ngIf="rol == 'asistentes'" style="margin-top:50px">
+    <input type="text" class="form-control" placeholder="Busca un pin..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Buscar</button>
     </div>
-    <input type="text" class="form-control" placeholder="pin de la persona..." aria-label="" aria-describedby="basic-addon1">
   </div>
 </div>
