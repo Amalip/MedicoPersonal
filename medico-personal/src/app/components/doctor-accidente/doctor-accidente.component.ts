@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Historial } from '../../models/historial.models';
 import { Paciente } from '../../models/paciente.models';
+import { HistorialService } from '../../services/historial.service';
 
 @Component({
   selector: 'app-doctor-accidente',
@@ -13,7 +14,8 @@ export class DoctorAccidenteComponent implements OnInit {
 
   @Input() paciente: Paciente; 
   accidente = new Historial(); 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private historialService: HistorialService) { }
 
   ngOnInit() {
     this.accidente.descripcion = 'Un accidente super feoooooo';
@@ -22,14 +24,18 @@ export class DoctorAccidenteComponent implements OnInit {
   goTo(event, page:number){
     switch(page){
       case 1:
-      this.router.navigateByUrl('/doctor/nube/'+this.paciente._idPaciente);
+      this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/nube/'+this.paciente._idPaciente);
       break; 
       case 2:
-      this.router.navigateByUrl('/doctor/historial/'+this.paciente._idPaciente);
+      this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/historial/'+this.paciente._idPaciente);
       break; 
       case 3:
-      this.router.navigateByUrl('/doctor/receta/'+this.paciente._idPaciente);
+      this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/receta/'+this.paciente._idPaciente);
       break; 
     }
+  }
+
+  getHistorial(id:number){
+
   }
 }

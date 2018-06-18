@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'; 
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { HospitalComponent } from './components/hospital/hospital.component';
 import { HospitalesComponent } from './components/hospitales/hospitales.component';
 
 import { PacientesService } from './services/pacientes.service';
+import { HistorialService } from './services/historial.service'; 
+
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { DoctorAccidenteComponent } from './components/doctor-accidente/doctor-accidente.component';
 import { RecetaComponent } from './components/receta/receta.component';
@@ -19,7 +22,7 @@ import { NubePersonalComponent } from './components/nube-personal/nube-personal.
 
 const routes = [ 
   {
-    path: 'doctor/:id/:name',
+    path: 'doctor/:id',
     component: DoctorDashboardComponent, 
     children: [
       {
@@ -58,9 +61,10 @@ const routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, {useHash:true})
+    RouterModule.forRoot(routes, {useHash:true}),
+    HttpModule
   ],
-  providers: [PacientesService],
+  providers: [PacientesService, HistorialService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
