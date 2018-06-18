@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   @Input() rol: string;
   citas: Paciente[] = [];
-  paciente:Paciente; 
+  paciente = 0; 
 
   constructor(private pacienteService: PacientesService, 
     private router: Router) {
@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit {
 
   goToDash(event: any){
     this.paciente = event.target.value; 
-    this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/'+this.paciente._nombre);
+    console.log(this.paciente); 
+    this.router.navigateByUrl('/doctor/'+this.paciente);
   }
 }
