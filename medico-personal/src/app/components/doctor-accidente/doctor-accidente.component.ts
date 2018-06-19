@@ -12,30 +12,37 @@ import { HistorialService } from '../../services/historial.service';
 
 export class DoctorAccidenteComponent implements OnInit {
 
-  @Input() paciente: Paciente; 
+  @Input() id: number; 
   accidente = new Historial(); 
+  historial: Historial[] = []; 
+
   constructor(private router: Router,
     private historialService: HistorialService) { }
 
   ngOnInit() {
-    this.accidente.descripcion = 'Un accidente super feoooooo';
+    this.getHistorial(); 
   }
 
   goTo(event, page:number){
     switch(page){
       case 1:
-      this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/nube/'+this.paciente._idPaciente);
+      this.router.navigateByUrl('/doctor/'+this.id+'/nube');
       break; 
       case 2:
-      this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/historial/'+this.paciente._idPaciente);
+      this.router.navigateByUrl('/doctor/'+this.id+'/historial/'+this.id);
       break; 
       case 3:
-      this.router.navigateByUrl('/doctor/'+this.paciente._idPaciente+'/receta/'+this.paciente._idPaciente);
+      this.router.navigateByUrl('/doctor/'+this.id+'/receta');
       break; 
     }
   }
 
-  getHistorial(id:number){
-
+  getHistorial(callback?: () => void): void{
+    this.historialService.getHistorial(this.id).subscribe((historial:Historial[]) => {
+      this.historial = historial; 
+      this.accidente = this.historial[this.historial.length - 1]; 
+      if(callback)
+        callback(); 
+    })
   }
 }

@@ -13,8 +13,10 @@ import { usuario } from '../../models/usuario.models';
 export class MenuComponent implements OnInit {
 
   @Input() rol: string;
+
   citas: Paciente[] = [];
-  paciente = 0;
+  paciente: number;
+
   @Input() id: string; 
   usuario:usuario;
   @Output() userFound = new EventEmitter<usuario>();

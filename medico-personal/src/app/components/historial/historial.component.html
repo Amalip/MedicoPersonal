@@ -1,3 +1,17 @@
-<p>
-  historial works!
-</p>
+<div class="card" style="margin:0 20px">
+  <div class="card-header text-center">
+    <i class="fas fa-notes-medical"></i> Historial
+  </div>
+  <div class="card-body">
+    <div *ngFor="let h of historial" class="row">
+      <div class="col-8">
+        <h5 style="color:#176189">{{h.fecha}}</h5>
+        <p>{{h.descripcion}}</p>
+      </div>
+      <div class="col-4 text-center">
+        <img src="./assets/img/hospital.png" alt="" style="width:80px; height:80px">
+        <h6>{{h.nombreHospital}}</h6>
+      </div>
+    </div>
+  </div>
+</div>

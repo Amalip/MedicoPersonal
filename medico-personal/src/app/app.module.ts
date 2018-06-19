@@ -13,6 +13,8 @@ import { HospitalesComponent } from './components/hospitales/hospitales.componen
 
 import { PacientesService } from './services/pacientes.service';
 import { HistorialService } from './services/historial.service'; 
+import { OrdenService } from './services/orden.service'; 
+import { FarmaciaService } from './services/farmacia.service'; 
 import { UsuarioService } from './services/usuario.service';
 import { HospitalService } from './services/hospital.service';
 import { PolizaService } from './services/poliza.service';
@@ -31,15 +33,15 @@ const routes = [
     component: DoctorDashboardComponent, 
     children: [
       {
-        path: 'historial/:id',
+        path: 'historial/:childid',
         component: HistorialComponent
       }, 
       {
-        path: 'nube/:id',
+        path: 'nube',
         component: NubePersonalComponent
       },
       {
-        path: 'receta/:id',
+        path: 'receta',
         component: RecetaComponent
       }
     ] 
@@ -69,10 +71,21 @@ const routes = [
     BrowserModule,
     RouterModule.forRoot(routes, {useHash:true}),
     HttpModule,
+<<<<<<< HEAD
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [PacientesService, HistorialService, UsuarioService,HospitalService,PolizaService],
+=======
+    FormsModule, 
+    ReactiveFormsModule
+  ],
+  providers: [PacientesService, 
+    HistorialService, 
+    UsuarioService,
+    FarmaciaService, 
+    OrdenService],
+>>>>>>> 32e70b6d4895b99b31cdbbc318f9d4516a48b7f7
   bootstrap: [AppComponent]
 })
 export class AppModule { }

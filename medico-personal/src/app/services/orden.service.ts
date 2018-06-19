@@ -9,7 +9,7 @@ import { InternalServerError } from '../common/errors/internal-server-error';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
-import { orden } from '../models/orden.models';
+import { Orden } from '../models/orden.models';
 import { ordenResponse } from '../models/ordenResponse.models';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class OrdenService {
     this.serviceUrl = `${Configuration.farmaciaURL}/api/v1/mypharmacy`;
   }
   
-  createOrden(resource: ordenResponse) : Observable<orden> {
+  createOrden(resource: ordenResponse) : Observable<Orden> {
     const headers = new Headers();
 
     headers.append('Accept', 'application/json');
