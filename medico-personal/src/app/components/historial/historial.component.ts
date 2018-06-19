@@ -23,19 +23,14 @@ export class HistorialComponent implements OnInit {
   /*@Input() hospital: hospitales;
   @Input() usuario: usuario;*/
 
-<<<<<<< HEAD
-  constructor() { }
-=======
   constructor(private route: ActivatedRoute,
     private router: Router,
     private historialService: HistorialService) { 
       this.id = this.route.snapshot.params['childid']; 
       console.log(this.id); 
     }
->>>>>>> 32e70b6d4895b99b31cdbbc318f9d4516a48b7f7
 
   ngOnInit() {
-    //this.getHistorial(); 
     
     const hist = new Historial(); 
     hist.fecha = '12/12/2015'; 
@@ -52,15 +47,5 @@ export class HistorialComponent implements OnInit {
         callback(); 
     })
   }
-<<<<<<< HEAD
-=======
 
- /* callTaxi(){
-    const taxi = new Taxi();
-    taxi.destino = this.hospital.ubicacion;
-    taxi.idUsuario = this.usuario.id;
-    this.taxiService.solicitarTaxi(taxi);
-  }*/
-
->>>>>>> 32e70b6d4895b99b31cdbbc318f9d4516a48b7f7
 }

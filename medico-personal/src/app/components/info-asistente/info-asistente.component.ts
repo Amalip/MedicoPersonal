@@ -18,23 +18,7 @@ export class InfoAsistenteComponent implements OnInit {
   @Input() hospital: hospitales;
   descripcion: string;
 
-<<<<<<< HEAD
   constructor(private historialService: HistorialService  ) { 
-=======
-  constructor(private historial: HistorialService  ) { 
-    const usua = new usuario();
-    usua.nombre = "Fulanito";
-    usua.apellidos = "Perez Perez";
-    usua.ciudad = "Leon";
-    usua.f_Nacimiento = "12/12/12";
-    usua.id = "2321";
-    usua.nss = "12345678";
-    usua.ocupación = "estudianre";
-    usua.pais = "Mexico";
-    usua.telefono = "123456789";
-    this.usuario = usua;
-
->>>>>>> 32e70b6d4895b99b31cdbbc318f9d4516a48b7f7
   }
 
   ngOnInit() {

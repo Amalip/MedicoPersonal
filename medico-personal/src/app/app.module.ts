@@ -71,12 +71,6 @@ const routes = [
     BrowserModule,
     RouterModule.forRoot(routes, {useHash:true}),
     HttpModule,
-<<<<<<< HEAD
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [PacientesService, HistorialService, UsuarioService,HospitalService,PolizaService],
-=======
     FormsModule, 
     ReactiveFormsModule
   ],
@@ -84,8 +78,8 @@ const routes = [
     HistorialService, 
     UsuarioService,
     FarmaciaService, 
-    OrdenService],
->>>>>>> 32e70b6d4895b99b31cdbbc318f9d4516a48b7f7
+    OrdenService,
+    HospitalService,PolizaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
