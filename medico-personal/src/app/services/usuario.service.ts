@@ -20,7 +20,7 @@ export class UsuarioService {
     this.serviceUrl = `${Configuration.usuarioURL}/info-completa/:`;
   }
   
-  getUsuarioData(id: number) : Observable<usuario> {
+  getUsuarioData(id: string) : Observable<usuario> {
     return this.http.get(`${this.serviceUrl}${id}`)
       .map((response: Response): usuario => response.json())
       .catch(this.handleError);

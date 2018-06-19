@@ -13,32 +13,30 @@ import { HistorialService } from '../../services/historial.service';
 export class InfoAsistenteComponent implements OnInit {
 
   
-  @Input() usuario: usuario;
+  usuarioInfo: usuario;
   @Input() paciente: Paciente;
   @Input() hospital: hospitales;
+  descripcion: string;
 
-  constructor(private historial: HistorialService  ) { 
-    const usua = new usuario();
-    usua.nombre = "Fulanito";
-    usua.apellidos = "Perez Perez";
-    usua.ciudad = "Leon";
-    usua.f_Nacimiento = "12/12/12";
-    usua.id = "2321";
-    usua.nss = "12345678";
-    usua.ocupación = "estudianre";
-    usua.pais = "Mexico";
-    usua.telefono = "123456789";
-    this.usuario = usua;
-
-
-
+  constructor(private historialService: HistorialService  ) { 
   }
 
   ngOnInit() {
   }
 
-  createHistorial(){
+  getUserInfo(user: usuario){
+    this.usuarioInfo = user;
+  }
 
+  createHistorial(){
+    const histo = new Historial;
+    histo.idPaciente = this.paciente.idPaciente;
+    histo.nombreHospital = this.hospital.nombre;
+    histo.descripcion = this.descripcion;
+    let date = new Date();
+    histo.fecha = date.toDateString();
+    
+    this.historialService.insertHistorial(histo);
   }
 
 }

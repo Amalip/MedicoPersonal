@@ -1,26 +1,14 @@
-<div class="container">
-    <h1>Seguro</h1>
-    <hr>
-    <div class="row">
-        <div class="col-xs-12 col-md">
-            <app-info-asistente></app-info-asistente>
-        </div>
-        <div class="col-xs-12 col-md">
-            <div class="hospitales-container">
-                <table class="table table-bordered table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>Hospital</th>
-                      <th style="text-align: center">Cobertura</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody *ngIf="hospitales.length > 0">
-                    <tr *ngFor="let hospital of hospitales" app-hospital [hospital]="hospital"></tr>
-                  </tbody>
-                </table>
-              </div>
-        </div>
-    </div>
+<div class="hospitales-container">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Hospital</th>
+        <th style="text-align: center">Cobertura</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="hospitales.length > 0">
+      <tr *ngFor="let hospital of hospitales" app-hospital [hospital]="hospital"></tr>
+    </tbody>
+  </table>
 </div>
-

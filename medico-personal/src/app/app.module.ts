@@ -14,13 +14,16 @@ import { HospitalesComponent } from './components/hospitales/hospitales.componen
 import { PacientesService } from './services/pacientes.service';
 import { HistorialService } from './services/historial.service'; 
 import { UsuarioService } from './services/usuario.service';
+import { HospitalService } from './services/hospital.service';
+import { PolizaService } from './services/poliza.service';
 
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { DoctorAccidenteComponent } from './components/doctor-accidente/doctor-accidente.component';
 import { RecetaComponent } from './components/receta/receta.component';
 import { HistorialComponent } from './components/historial/historial.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { NubePersonalComponent } from './components/nube-personal/nube-personal.component'; 
+import { NubePersonalComponent } from './components/nube-personal/nube-personal.component';
+import { AsistenteDashboardComponent } from './components/asistente-dashboard/asistente-dashboard.component'; 
 
 const routes = [ 
   {
@@ -59,15 +62,17 @@ const routes = [
     RecetaComponent,
     HistorialComponent,
     NotFoundComponent,
-    NubePersonalComponent
+    NubePersonalComponent,
+    AsistenteDashboardComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, {useHash:true}),
     HttpModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [PacientesService, HistorialService, UsuarioService],
+  providers: [PacientesService, HistorialService, UsuarioService,HospitalService,PolizaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,18 +15,8 @@ export class HistorialComponent implements OnInit {
   @Input() hospital: hospitales;
   @Input() usuario: usuario;
 
-  constructor(private taxiService: TaxiService) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  callTaxi(){
-    const taxi = new Taxi();
-    taxi.destino = this.hospital.ubicacion;
-    taxi.idUsuario = this.usuario.id;
-    
-
-    this.taxiService.solicitarTaxi(taxi);
-  }
-
 }

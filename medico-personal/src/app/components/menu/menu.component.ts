@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Paciente } from '../../models/paciente.models';
 import { PacientesService } from '../../services/pacientes.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   paciente = 0;
   @Input() id: string; 
   usuario:usuario;
+  @Output() userFound = new EventEmitter<usuario>();
 
   constructor(private pacienteService: PacientesService, 
     private router: Router, 
@@ -32,6 +33,7 @@ export class MenuComponent implements OnInit {
     console.log(this.id);
     this.usuarioService.getUsuarioData(this.id).subscribe((usuario: usuario) => {
       this.usuario = usuario;
+      this.userFound.emit(usuario);
       if (callback) {
         callback();
       }
