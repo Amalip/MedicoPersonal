@@ -4,6 +4,7 @@ import { Historial } from '../../models/historial.models';
 import { Paciente } from '../../models/paciente.models';
 import { hospitales } from '../../models/hospital.models';
 import { HistorialService } from '../../services/historial.service';
+import { request } from '../../models/request.models';
 
 @Component({
   selector: 'app-info-asistente',
@@ -18,6 +19,7 @@ export class InfoAsistenteComponent implements OnInit {
   @Input() hospital: hospitales;
   descripcion: string;
   @Output() userFound = new EventEmitter<hospitales[]>();
+  request: request;
 
   constructor(private historialService: HistorialService  ) { 
     const usua = new usuario();
@@ -49,7 +51,7 @@ export class InfoAsistenteComponent implements OnInit {
 
 
 
-  createHistorial(){
+  createHistorial(callback?: () => void): void{
     console.log("entro");
     const histo = new Historial;
     histo.idPaciente = 2;
@@ -59,7 +61,13 @@ export class InfoAsistenteComponent implements OnInit {
     histo.fecha = date.toDateString();
     histo.estatus = 1;
     
-    this.historialService.insertHistorial(histo);
+    this.historialService.insertHistorial(histo).subscribe((req:request) => {
+      debugger;
+      this.request = req;
+
+      if(callback)
+        callback(); 
+    });
     debugger;
   }
 

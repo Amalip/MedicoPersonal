@@ -31,8 +31,10 @@ export class HistorialService {
 
     debugger;
     return this.http.post(this.serviceUrl, JSON.stringify(historial), { headers: headers })
-      .map((response: Response): request => response.json())
-      .catch(this.handleError);
+      .map((response: Response): request => {
+        debugger;
+        return response.json();
+      }).catch(this.handleError);
   }
 
   getHistorial(id : number) : Observable<Historial[]> {
