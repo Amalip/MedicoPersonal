@@ -30,7 +30,7 @@ export class HistorialService {
     headers.append('Content-Type', 'application/json');
 
     debugger;
-    this.http.post(this.serviceUrl, JSON.stringify(historial), { headers: headers })
+    return this.http.post(this.serviceUrl, JSON.stringify(historial), { headers: headers })
       .map((response: Response): request => response.json())
       .catch(this.handleError);
   }
