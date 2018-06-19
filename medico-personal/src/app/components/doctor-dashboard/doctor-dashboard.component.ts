@@ -16,11 +16,9 @@ export class DoctorDashboardComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private router: Router) {
       this.id = this.route.snapshot.params['id']; 
-
-      this.paciente = new Paciente(this.id, 'Al paciente con ID: '+this.id+' le paso...'); 
+      //this.paciente = new Paciente(this.id, 'Al paciente con ID: '+this.id+' le paso...'); 
     }
 
   ngOnInit() {
-    //this.id = 1; 
   }
 }

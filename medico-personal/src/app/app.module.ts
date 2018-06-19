@@ -15,6 +15,7 @@ import { PacientesService } from './services/pacientes.service';
 import { HistorialService } from './services/historial.service'; 
 import { OrdenService } from './services/orden.service'; 
 import { FarmaciaService } from './services/farmacia.service'; 
+import { UsuarioService } from './services/usuario.service';
 
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { DoctorAccidenteComponent } from './components/doctor-accidente/doctor-accidente.component';
@@ -29,11 +30,11 @@ const routes = [
     component: DoctorDashboardComponent, 
     children: [
       {
-        path: 'historial/:id',
+        path: 'historial/:childid',
         component: HistorialComponent
       }, 
       {
-        path: 'nube/:id',
+        path: 'nube',
         component: NubePersonalComponent
       },
       {
@@ -70,8 +71,9 @@ const routes = [
     ReactiveFormsModule
   ],
   providers: [PacientesService, 
-    HistorialService,
-    FarmaciaService,
+    HistorialService, 
+    UsuarioService,
+    FarmaciaService, 
     OrdenService],
   bootstrap: [AppComponent]
 })

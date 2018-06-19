@@ -18,6 +18,7 @@ export class RecetaComponent implements OnInit {
   medicinas: Medicina[] = [];  
   code = ''; 
   orden: Orden;
+  idMedicina = 0; 
 
   constructor(private ordenService: OrdenService, 
   private farmaciaService: FarmaciaService,
@@ -27,14 +28,16 @@ export class RecetaComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      idProducto: new FormControl(1),
+      //idProducto: new FormControl({}),
       cantidad: new FormControl(1)
     });
+
+    this.getMedicinas(); 
   }
 
-  get idProducto(){
+  /*get idProducto(){
     return this.form.get('slctMedicina');
-  }
+  }*/
 
   get cantidad(){
     return this.form.get('cantidad');
@@ -48,7 +51,7 @@ export class RecetaComponent implements OnInit {
     this.code = ''; 
     const pedido = new ordenResponse()
     pedido.id_Customer = 2; 
-    pedido.id_Product = this.idProducto.value;
+    pedido.id_Product = this.idMedicina; 
     pedido.quantity = this.cantidad.value; 
     console.log(pedido);  
 
@@ -59,5 +62,10 @@ export class RecetaComponent implements OnInit {
       else
       this.code = 'error';  
     });
+  }
+
+  getIdMedicina(event:any){
+    this.idMedicina = event.target.value; 
+    console.log(this.idMedicina); 
   }
 }
