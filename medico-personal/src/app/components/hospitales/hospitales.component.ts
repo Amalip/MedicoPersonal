@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { hospitales } from '../../models/hospital.models';
 import { ubicacion } from '../../models/ubicacion.models';
+import { usuario } from '../../models/usuario.models';
+import { poliza } from '../../models/poliza.models';
+import { HospitalService } from '../../services/hospital.service';
+import { PolizaService } from '../../services/poliza.service';
 
 @Component({
   selector: 'app-hospitales',
@@ -10,8 +14,10 @@ import { ubicacion } from '../../models/ubicacion.models';
 export class HospitalesComponent implements OnInit {
 
   hospitales: hospitales[] = [];
+  nss: number;
+  poliza: poliza;
 
-  constructor() {
+  constructor(private hospitalService: HospitalService, private polizaService: PolizaService) {
     const hosp = new hospitales();
     hosp.idHospital = 1;
     hosp.nombre = "Hospital Galleta";
@@ -28,6 +34,30 @@ export class HospitalesComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  verifyNSS(){
+    if (this.nss = null){
+      this.getHospitales();
+    }else{
+      this.getPoliza();
+    }
+  }
+
+  getHospitales(callback?: () => void): void {
+    this.hospitalService.getHospitales().subscribe((hospitales: hospitales[]) => {
+      this.hospitales = hospitales;
+      if (callback) {
+        callback();
+      }
+    });
+  }
+
+  getPoliza(callback?: () => void): void {
+    this.polizaService.getPolizaData(this.nss).subscribe((poli: poliza) => {
+      this.poliza = poli;
+      if (callback) {
+        callback();
+      }
+    });
+  }
 
 }

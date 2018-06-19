@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Paciente } from '../../models/paciente.models';
+import { Component, OnInit, Input } from '@angular/core';
 import { usuario } from '../../models/usuario.models';
+import { Historial } from '../../models/historial.models';
+import { Paciente } from '../../models/paciente.models';
+import { hospitales } from '../../models/hospital.models';
+import { HistorialService } from '../../services/historial.service';
 
 @Component({
   selector: 'app-info-asistente',
@@ -10,9 +13,11 @@ import { usuario } from '../../models/usuario.models';
 export class InfoAsistenteComponent implements OnInit {
 
   
-  usuario: usuario;
+  @Input() usuario: usuario;
+  @Input() paciente: Paciente;
+  @Input() hospital: hospitales;
 
-  constructor() { 
+  constructor(private historial: HistorialService  ) { 
     const usua = new usuario();
     usua.nombre = "Fulanito";
     usua.apellidos = "Perez Perez";
@@ -30,6 +35,10 @@ export class InfoAsistenteComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  createHistorial(){
+
   }
 
 }

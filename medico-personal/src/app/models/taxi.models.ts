@@ -1,6 +1,6 @@
 import { ubicacion } from "./ubicacion.models";
 
 export class Taxi {
-    public idUsuario : number;
+    public idUsuario : string;
     public destino : ubicacion;
 }
