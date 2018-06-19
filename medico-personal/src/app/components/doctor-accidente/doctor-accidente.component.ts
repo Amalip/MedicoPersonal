@@ -20,7 +20,8 @@ export class DoctorAccidenteComponent implements OnInit {
     private historialService: HistorialService) { }
 
   ngOnInit() {
-    this.getHistorial(); 
+    this.accidente.descripcion = 'Algo muy cabron le paso y por eso esta en el hospital';
+    debugger;  
   }
 
   goTo(event, page:number){
@@ -37,12 +38,5 @@ export class DoctorAccidenteComponent implements OnInit {
     }
   }
 
-  getHistorial(callback?: () => void): void{
-    this.historialService.getHistorial(this.id).subscribe((historial:Historial[]) => {
-      this.historial = historial; 
-      this.accidente = this.historial[this.historial.length - 1]; 
-      if(callback)
-        callback(); 
-    })
-  }
+  
 }

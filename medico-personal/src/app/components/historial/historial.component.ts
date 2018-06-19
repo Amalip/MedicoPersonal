@@ -32,17 +32,24 @@ export class HistorialComponent implements OnInit {
 
   ngOnInit() {
     
-    const hist = new Historial(); 
+    /*const hist = new Historial(); 
     hist.fecha = '12/12/2015'; 
     hist.descripcion = 'Pasaron muchas cosas feas que hicieron al paciente llorar'; 
     hist.nombreHospital = 'Hosiptal kawayoso'; 
 
-    this.historial = [hist]; 
+    this.historial = [hist]; */
+
+    this.getHistorial(); 
   }
 
   getHistorial(callback?: () => void): void{
     this.historialService.getHistorial(this.id).subscribe((historial:Historial[]) => {
+      debugger;
       this.historial = historial; 
+      console.log(this.historial); 
+
+      debugger;
+
       if(callback)
         callback(); 
     })

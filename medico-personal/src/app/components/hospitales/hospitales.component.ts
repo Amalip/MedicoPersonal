@@ -34,14 +34,6 @@ export class HospitalesComponent implements OnInit {
   ngOnInit() {
   }
 
-  verifyNSS(){
-    if (this.nss = null){
-      this.getHospitales();
-    }else{
-      this.getPoliza();
-    }
-  }
-
   getHospitales(callback?: () => void): void {
     this.hospitalService.getHospitales().subscribe((hospitales: hospitales[]) => {
       this.hospitales = hospitales;

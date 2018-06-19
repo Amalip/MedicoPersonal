@@ -10,6 +10,7 @@
   <div *ngIf="rol == 'doctor'" style="margin-top:50px">
     <h5><i class="fas fa-clipboard-list"></i> Citas pendientes</h5>
     <select class="custom-select" (change)="goToDash($event)">
+      <option value="null" selected>Selecciona...</option>
       <option *ngFor="let c of citas" [value]="c._idPaciente">{{c._nombre}}</option>
     </select>
   </div>

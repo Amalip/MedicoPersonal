@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  rol = 'doctor'; 
+  rol = 'asistentes'; 
 }

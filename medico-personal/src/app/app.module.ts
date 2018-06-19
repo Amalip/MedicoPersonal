@@ -18,6 +18,7 @@ import { FarmaciaService } from './services/farmacia.service';
 import { UsuarioService } from './services/usuario.service';
 import { HospitalService } from './services/hospital.service';
 import { PolizaService } from './services/poliza.service';
+import { TaxiService } from './services/taxi.service';
 
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { DoctorAccidenteComponent } from './components/doctor-accidente/doctor-accidente.component';
@@ -79,7 +80,7 @@ const routes = [
     UsuarioService,
     FarmaciaService, 
     OrdenService,
-    HospitalService,PolizaService],
+    HospitalService,PolizaService,TaxiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

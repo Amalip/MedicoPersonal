@@ -21,22 +21,26 @@ export class HistorialService {
   }
   
   insertHistorial(historial : Historial) {
-    this.serviceUrl = `${Configuration.historialURL}/ServicioFinal/api/v1/insertar`;
+    this.serviceUrl = `${Configuration.historialURL}ServicioFinal/api/v1/historial/insertar`;
 
     const headers = new Headers();
 
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
 
+    debugger;
     this.http.post(this.serviceUrl, JSON.stringify(historial), { headers: headers })
       .catch(this.handleError);
   }
 
   getHistorial(id : number) : Observable<Historial[]> {
-    this.serviceUrl = `${Configuration.historialURL}/ServicioFinal/api/v1/obtener`;
+    this.serviceUrl = `${Configuration.historialURL}ServicioFinal/api/v1/historial/obtener`;
 
     return this.http.get(`${this.serviceUrl}/${id}`)
-      .map((response: Response): Historial[] => response.json())
+      .map((response: Response): Historial[] => {
+        debugger;
+        return response.json().datos;
+      })
       .catch(this.handleError);
   }
 
