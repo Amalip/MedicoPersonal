@@ -10,6 +10,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { Historial } from '../models/historial.models';
+import { request } from '../models/request.models';
 
 @Injectable()
 export class HistorialService {
@@ -20,7 +21,7 @@ export class HistorialService {
     
   }
   
-  insertHistorial(historial : Historial) {
+  insertHistorial(historial : Historial) : Observable<request> {
     this.serviceUrl = `${Configuration.historialURL}ServicioFinal/api/v1/historial/insertar`;
 
     const headers = new Headers();
@@ -30,6 +31,7 @@ export class HistorialService {
 
     debugger;
     this.http.post(this.serviceUrl, JSON.stringify(historial), { headers: headers })
+      .map((response: Response): request => response.json())
       .catch(this.handleError);
   }
 
