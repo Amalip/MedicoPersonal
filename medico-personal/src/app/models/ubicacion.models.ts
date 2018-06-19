@@ -1,4 +1,4 @@
 export class ubicacion {
-    public lat: number;
-    public lng: number;
+    public lat: string;
+    public lng: string;
 }
