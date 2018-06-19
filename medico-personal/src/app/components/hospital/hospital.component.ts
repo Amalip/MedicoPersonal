@@ -14,8 +14,7 @@ import { TaxiService } from '../../services/taxi.service';
 })
 export class HospitalComponent implements OnInit {
 
-  @Input() hospital: hospitales;
-  @Input() usuario: usuario;
+ 
   @Input() paciente: Paciente;
 
   constructor(private taxiService: TaxiService) {
@@ -27,13 +26,6 @@ export class HospitalComponent implements OnInit {
   }
 
   callTaxi(){
-    const taxi = new Taxi();
-    taxi.destino = this.hospital.ubicacion;
-    taxi.idUsuario = this.usuario.id;
-    
-
-    this.taxiService.solicitarTaxi(taxi);
-
   }
 
 
