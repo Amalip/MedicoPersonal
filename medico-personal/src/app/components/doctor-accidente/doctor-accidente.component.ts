@@ -14,11 +14,13 @@ export class DoctorAccidenteComponent implements OnInit {
 
   @Input() paciente: Paciente; 
   accidente = new Historial(); 
+  historial: Historial[] = []; 
+
   constructor(private router: Router,
     private historialService: HistorialService) { }
 
   ngOnInit() {
-    this.accidente.descripcion = 'Un accidente super feoooooo';
+    this.getHistorial(); 
   }
 
   goTo(event, page:number){
@@ -35,7 +37,12 @@ export class DoctorAccidenteComponent implements OnInit {
     }
   }
 
-  getHistorial(id:number){
-
+  getHistorial(callback?: () => void): void{
+    this.historialService.getHistorial(this.paciente._idPaciente).subscribe((historial:Historial[]) => {
+      this.historial = historial; 
+      this.accidente = this.historial[this.historial.length - 1]; 
+      if(callback)
+        callback(); 
+    })
   }
 }

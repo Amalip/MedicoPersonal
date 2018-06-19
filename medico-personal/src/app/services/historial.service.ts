@@ -21,7 +21,7 @@ export class HistorialService {
   }
   
   insertHistorial(historial : Historial) {
-    this.serviceUrl = `${Configuration.historialURL}/api/v1/insertar`;
+    this.serviceUrl = `${Configuration.historialURL}/ServicioFinal/api/v1/insertar`;
 
     const headers = new Headers();
 
@@ -32,8 +32,8 @@ export class HistorialService {
       .catch(this.handleError);
   }
 
-  getHistorial(id : number) : Observable<Historial> {
-    this.serviceUrl = `${Configuration.historialURL}/api/v1/obtener`;
+  getHistorial(id : number) : Observable<Historial[]> {
+    this.serviceUrl = `${Configuration.historialURL}/ServicioFinal/api/v1/obtener`;
 
     return this.http.get(`${this.serviceUrl}/${id}`)
       .map((response: Response): Historial[] => response.json())

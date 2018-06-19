@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'; 
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { HospitalesComponent } from './components/hospitales/hospitales.componen
 
 import { PacientesService } from './services/pacientes.service';
 import { HistorialService } from './services/historial.service'; 
+import { OrdenService } from './services/orden.service'; 
+import { FarmaciaService } from './services/farmacia.service'; 
 
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { DoctorAccidenteComponent } from './components/doctor-accidente/doctor-accidente.component';
@@ -34,7 +37,7 @@ const routes = [
         component: NubePersonalComponent
       },
       {
-        path: 'receta/:id',
+        path: 'receta',
         component: RecetaComponent
       }
     ] 
@@ -62,9 +65,14 @@ const routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, {useHash:true}),
-    HttpModule
+    HttpModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
-  providers: [PacientesService, HistorialService],
+  providers: [PacientesService, 
+    HistorialService,
+    FarmaciaService,
+    OrdenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

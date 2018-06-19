@@ -1,6 +1,6 @@
 import { datos } from "./datos.models";
 
-export class orden {
+export class Orden {
     public hasError : boolean;
     public httpStatusCode : number;
     public message : string;

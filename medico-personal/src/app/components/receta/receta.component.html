@@ -1,3 +1,27 @@
-<p>
-  receta works!
-</p>
+<div class="card">
+  <div class="card-header" >
+    Pedir a farmacia
+  </div>
+  <form [formGroup]="form" (ngSubmit)="createPedido()">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <select class="custom-select" id="slctMedicina" formControlName="slctMedicina">
+          <option selected>Elige medicina...</option>
+          <option *ngFor="let m of medicinas" [value]="m.id">{{m.nombre}}</option>
+        </select>
+        <div class="input-group-append">
+          <input type="number" name="cantidad" id="cantidad" class="form-control" formControlName="cantidad">
+        </div>
+      </div>
+      <div *ngIf="code=='ok'">
+        Ya por ahi viene tu medicina!!
+      </div>
+      <div *ngIf="code=='error'">
+        No se pudo realizar tu orden
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button type="submit" class="btn btn-outline-secondary">Pedir</button>
+    </div>
+  </form>
+</div>

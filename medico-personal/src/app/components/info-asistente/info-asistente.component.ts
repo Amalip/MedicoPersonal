@@ -25,8 +25,6 @@ export class InfoAsistenteComponent implements OnInit {
     usua.telefono = "123456789";
     this.usuario = usua;
 
-
-
   }
 
   ngOnInit() {
