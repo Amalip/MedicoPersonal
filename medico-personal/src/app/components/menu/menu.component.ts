@@ -33,9 +33,12 @@ export class MenuComponent implements OnInit {
 
   getUserById(callback?: () => void) :void{
     console.log(this.id);
+    debugger;
     this.usuarioService.getUsuarioData(this.id).subscribe((usuario: usuario) => {
+      debugger;
       this.usuario = usuario;
       this.userFound.emit(usuario);
+      localStorage.setItem('userKey', usuario.id);
       if (callback) {
         callback();
       }

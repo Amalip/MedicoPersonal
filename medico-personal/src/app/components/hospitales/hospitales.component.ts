@@ -23,8 +23,8 @@ export class HospitalesComponent implements OnInit {
     hosp.nombre = "Hospital Galleta";
     hosp.cobertura = 80;
     const ubi = new ubicacion();
-    ubi.lat = 234456.2436;
-    ubi.lng = 12456.42564; 
+    ubi.lat = "234456.2436";
+    ubi.lng = "12456.42564"; 
     hosp.direccion = "Colonia patito 1245";
     hosp.ubicacion = ubi;
     this.hospitales.push(hosp);

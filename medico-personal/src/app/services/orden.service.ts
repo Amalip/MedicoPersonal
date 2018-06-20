@@ -18,7 +18,7 @@ export class OrdenService {
   serviceUrl: string;
 
   constructor(private http: Http) {
-    this.serviceUrl = `${Configuration.farmaciaURL}/api/v1/mypharmacy`;
+    this.serviceUrl = `${Configuration.farmaciaURL}Pharmacy/Pharmacy.Services/api/v1/mypharmacy/makeorder`;
   }
   
   createOrden(resource: ordenResponse) : Observable<Orden> {

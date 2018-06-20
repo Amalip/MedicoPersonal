@@ -5,6 +5,7 @@ import { Paciente } from '../../models/paciente.models';
 import { hospitales } from '../../models/hospital.models';
 import { HistorialService } from '../../services/historial.service';
 import { request } from '../../models/request.models';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-info-asistente',
@@ -18,10 +19,10 @@ export class InfoAsistenteComponent implements OnInit {
   @Input() paciente: Paciente;
   @Input() hospital: hospitales;
   descripcion: string;
-  @Output() userFound = new EventEmitter<hospitales[]>();
+  @Output() hospitalEvent = new EventEmitter<hospitales[]>();
   request: request;
 
-  constructor(private historialService: HistorialService  ) { 
+  constructor(private historialService: HistorialService, private usuarioService: UsuarioService  ) { 
     const usua = new usuario();
     usua.nombre = "Fulanito";
     usua.apellidos = "Perez Perez";
@@ -37,9 +38,19 @@ export class InfoAsistenteComponent implements OnInit {
   ngOnInit() {
   }
 
-  getUserInfo(user: usuario){
-    this.usuario = user;
-  }
+  // getUserById(callback?: () => void) :void{
+  //   console.log(this.id);
+  //   debugger;
+  //   this.usuarioService.getUsuarioData(this.id).subscribe((usuario: usuario) => {
+  //     debugger;
+  //     this.usuario = usuario;
+  //     this.userFound.emit(usuario);
+  //     localStorage.setItem('userKey', usuario.id);
+  //     if (callback) {
+  //       callback();
+  //     }
+  //   });
+  // }
 
   verifyNSS(){
     if (this.usuario.nss = null){

@@ -17,7 +17,7 @@ export class TaxiService {
   serviceUrl: string;
 
   constructor(private http: Http) {
-    this.serviceUrl = `${Configuration.taxilURL}/solicitudTaxi`;
+    this.serviceUrl = `${Configuration.taxilURL}ConsumoAPI/servicio`;
   }
   
   solicitarTaxi (taxiData : Taxi) {

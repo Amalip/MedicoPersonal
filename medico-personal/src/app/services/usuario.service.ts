@@ -17,13 +17,16 @@ export class UsuarioService {
   serviceUrl: string;
 
   constructor(private http: Http) {
-    this.serviceUrl = `${Configuration.usuarioURL}/info-completa/:`;
+    this.serviceUrl = `${Configuration.usuarioURL}info-completa/`;
   }
   
   getUsuarioData(id: string) : Observable<usuario> {
+    debugger;
     return this.http.get(`${this.serviceUrl}${id}`)
-      .map((response: Response): usuario => response.json())
-      .catch(this.handleError);
+      .map((response: Response): usuario => {
+        debugger;
+        return response.json().datos;
+      }).catch(this.handleError);
   }
 
   private handleError(error: Response) {

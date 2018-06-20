@@ -25,7 +25,7 @@ export class NubePersonalComponent implements OnInit {
     usua.telefono = "123456789";
     this.usuario = usua;
 
-    //this.getUsuario(); 
+    this.getUsuario(); 
    }
 
   ngOnInit() {
